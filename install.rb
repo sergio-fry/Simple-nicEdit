@@ -10,4 +10,4 @@ FileUtils.cp(scripts, public_dir + '/javascripts/')
 scripts = Dir[File.join(File.dirname(__FILE__), '/images/*')]
 FileUtils.cp(scripts, public_dir + '/images/')
 
-puts "Files copied - Installation complete!
+puts "Files copied - Installation complete!"
