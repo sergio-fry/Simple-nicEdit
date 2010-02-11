@@ -4,11 +4,24 @@ SimpleNicedit
 Easy way to start using wysiwyg editor for Rails Application (nicEdit) — Read more
 
 
-
 Example
 =======
 
-Example goes here.
+It's supposed, that you are already using jrails plugin, that replaces prototype with jQuery. If not, than install it:
+$ ruby script/plugin install git://github.com/aaronchi/jrails.git
 
+Installing Simple nicEdit plugin:
+$ ruby script/plugin install git@github.com:sergio-fry/Simple-nicEdit.git
+
+Add js to your layout:
+<%= include_nicedit_assets %>
+
+Use it in form
+<% form_for @page do |f| %>
+  <%= f.rresizable_text_area :description %>
+  <%= f.rich_text_area :body %>
+<% end %>
+
+Good Luck!
 
 Copyright (c) 2010 Sergei O. Udalov <sergei.udalov@gmail.com>, released under the MIT license
