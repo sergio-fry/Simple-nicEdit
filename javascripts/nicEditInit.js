@@ -26,6 +26,9 @@ $(function(){ //after page load
     $(this).set_uniq_id();
     id = $(this).attr("id");
 
-    new nicEditor({fullPanel: true, iconsPath: '/images/nicEditorIcons.gif'}).panelInstance(id);
+    upload_url = $(this).attr('upload_url');
+    upload_url = upload_url ? upload_url : 'http://files.nicedit.com/';
+
+    new nicEditor({fullPanel: true, iconsPath: '/images/nicEditorIcons.gif', uploadURI: upload_url}).panelInstance(id);
   }); 
 });
