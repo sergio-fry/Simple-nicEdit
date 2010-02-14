@@ -9,7 +9,7 @@ It's supposed, that you are already using jrails plugin, that replaces prototype
   $ ruby script/plugin install git://github.com/aaronchi/jrails.git
 
 Installing Simple nicEdit plugin:
-  $ ruby script/plugin install git@github.com:sergio-fry/Simple-nicEdit.git
+  $ ruby script/plugin install git://github.com/sergio-fry/Simple-nicEdit.git
 
 Add js to your layout:
   <%= include_nicedit_assets %>
