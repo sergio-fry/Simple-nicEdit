@@ -25,7 +25,7 @@ Use it in form
 
 Add a line in your controller:
 
-uploads_nicedit_image :upload_action_name
+  uploads_nicedit_image :upload_action_name
 
 And add :upload_url option to field:
 
