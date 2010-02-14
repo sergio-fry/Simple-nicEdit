@@ -49,7 +49,9 @@ module SimpleNicedit
             hashed_name = Digest::SHA1.hexdigest(Time.now.to_s + original_filename) 
             filename = "#{hashed_name}.#{extension}" 
 
-            FileUtils.mv(params[:nicImage].path, File.join(upload_path, filename))
+            file_path = File.join(upload_path, filename)
+            FileUtils.mv(params[:nicImage].path, file_path)
+            FileUtils.chmod(0644, file_path)
 
 
             if Object.const_defined?("Magick")
