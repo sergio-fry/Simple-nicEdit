@@ -1,11 +1,9 @@
-SimpleNicedit
-=============
+== SimpleNicedit
 
 Easy way to start using wysiwyg editor for Rails Application (nicEdit) — Read more
 
 
-Example
-=======
+== Usage
 
 It's supposed, that you are already using jrails plugin, that replaces prototype with jQuery. If not, than install it:
 $ ruby script/plugin install git://github.com/aaronchi/jrails.git
@@ -18,9 +16,21 @@ Add js to your layout:
 
 Use it in form
 <% form_for @page do |f| %>
-  <%= f.rresizable_text_area :description %>
+  <%= f.resizable_text_area :description %>
   <%= f.rich_text_area :body %>
 <% end %>
+
+
+== Image upload
+
+Add a line in your controller:
+
+uploads_nicedit_image :upload_action_name
+
+And add :upload_url option to field:
+
+<%= f.rich_text_area :body, :upload_url => url_for (:action => :upload_action_name) %>
+
 
 Good Luck!
 
