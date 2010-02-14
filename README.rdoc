@@ -6,19 +6,19 @@ Easy way to start using wysiwyg editor for Rails Application (nicEdit) — Read 
 == Usage
 
 It's supposed, that you are already using jrails plugin, that replaces prototype with jQuery. If not, than install it:
-$ ruby script/plugin install git://github.com/aaronchi/jrails.git
+  $ ruby script/plugin install git://github.com/aaronchi/jrails.git
 
 Installing Simple nicEdit plugin:
-$ ruby script/plugin install git@github.com:sergio-fry/Simple-nicEdit.git
+  $ ruby script/plugin install git@github.com:sergio-fry/Simple-nicEdit.git
 
 Add js to your layout:
-<%= include_nicedit_assets %>
+  <%= include_nicedit_assets %>
 
 Use it in form
-<% form_for @page do |f| %>
-  <%= f.resizable_text_area :description %>
-  <%= f.rich_text_area :body %>
-<% end %>
+  <% form_for @page do |f| %>
+    <%= f.resizable_text_area :description %>
+    <%= f.rich_text_area :body %>
+  <% end %>
 
 
 == Image upload
@@ -29,9 +29,9 @@ uploads_nicedit_image :upload_action_name
 
 And add :upload_url option to field:
 
-<%= f.rich_text_area :body, :upload_url => url_for (:action => :upload_action_name) %>
+  <%= f.rich_text_area :body, :upload_url => url_for (:action => :upload_action_name) %>
 
 
-Good Luck!
+== Good Luck!
 
 Copyright (c) 2010 Sergei O. Udalov <sergei.udalov@gmail.com>, released under the MIT license
