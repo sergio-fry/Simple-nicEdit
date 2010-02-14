@@ -39,6 +39,7 @@ module SimpleNicedit
       def uploads_nicedit_image name, options = {}
         define_method "#{name}" do
           upload_path = RAILS_ROOT + '/public/system/uploads'
+          FileUtils.mkdir_p(upload_path)
           upload_uri = '/system/uploads'
 
           if request.method == :post
@@ -48,13 +49,20 @@ module SimpleNicedit
             hashed_name = Digest::SHA1.hexdigest(Time.now.to_s + original_filename) 
             filename = "#{hashed_name}.#{extension}" 
 
-            file_path = File.join(upload_path, filename)
-            File.open(file_path, 'w'){ |f| f.write(params[:nicImage].read) }
-
-            image = Magick::Image::read(file_path).first
+            FileUtils.mv(params[:nicImage].path, File.join(upload_path, filename))
 
 
-            status = {:done => 1, :width => image.columns, :url => File.join(upload_uri, filename)}
+            if Object.const_defined?("Magick")
+              image = Magick::Image::read(file_path).first
+              image_width = image.columns
+            else
+              image_width = 100
+            end
+
+
+
+            status = {:done => 1, :width => image_width, :url => File.join(upload_uri, filename)}
+
             render :text => "<script>top.nicUploadButton.statusCb(#{status.to_json})</script>"
           else
             status = {:noprogress => true}

@@ -23,8 +23,10 @@ Use it in form
 
 == Image upload
 
-Add a line in your controller:
+Add a lines in your controller:
 
+
+      protect_from_forgery :except => :index
   uploads_nicedit_image :upload_action_name
 
 And add :upload_url option to field:
