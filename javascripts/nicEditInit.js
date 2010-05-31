@@ -14,7 +14,7 @@ jQuery.fn.set_uniq_id = function(){
 }
 
 $(function(){ //after page load
-  $(".resizable_text_area").each(function(){
+  $(".resizable_text_area:visible").livequery(function(){
 
     $(this).set_uniq_id();
     id = $(this).attr("id");
@@ -22,7 +22,7 @@ $(function(){ //after page load
     new nicEditor({buttonList:[], iconsPath: '/images/nicEditorIcons.gif'}).panelInstance(id);
   }); 
 
-  $(".simple_nicedit").each(function(){
+  $(".simple_nicedit:visible").livequery(function(){
     $(this).set_uniq_id();
     id = $(this).attr("id");
 
