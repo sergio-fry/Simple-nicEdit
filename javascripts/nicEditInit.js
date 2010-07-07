@@ -1,20 +1,17 @@
-jQuery.fn.set_uniq_id = function(){
-  if($(this).attr("id") == ""){
-    
-    //generating uniq id
-    id = "rand_id_" + Math.random();
-    while($("#"+id).length > 0){
-      id = "rand_id_" + Math.random();
-    }
-
-    $(this).attr("id", id);
-  } else {
-    id = $(this).attr("id");
+jQuery(function($){ //after page load
+  jQuery.fn.set_uniq_id = function(){
+    return $(this).each(function(){
+      if($(this).attr("id") == "" || $("[id='"+$(this).attr("id")+"']").length != 1){
+        id = "rand_id_" + Math.random();
+        while($("[id='"+id+"']").length > 0){
+          id = "rand_id_" + Math.random();
+        }
+        $(this).attr("id", id);
+      }
+    });
   }
-}
 
-$(function(){ //after page load
-  $(".resizable_text_area:visible").livequery(function(){
+  $(".resizable_text_area:visible").each(function(){
 
     $(this).set_uniq_id();
     id = $(this).attr("id");
