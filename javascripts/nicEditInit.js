@@ -11,7 +11,19 @@ jQuery(function($){ //after page load
     });
   }
 
-  $(".resizable_text_area:visible").each(function(){
+  $.simpleNiceditInit = function(inputs){
+    inputs.each(function(){
+      $(this).set_uniq_id();
+      id = $(this).attr("id");
+
+      upload_url = $(this).attr('upload_url');
+      upload_url = upload_url ? upload_url : 'http://files.nicedit.com/';
+
+      new nicEditor({fullPanel: true, iconsPath: '/images/nicEditorIcons.gif', uploadURI: upload_url}).panelInstance(id);
+    }); 
+  };
+
+  $(".resizable_text_area:visible").livequery(function(){
 
     $(this).set_uniq_id();
     id = $(this).attr("id");
