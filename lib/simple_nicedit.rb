@@ -57,6 +57,9 @@ module SimpleNicedit
             if Object.const_defined?("Magick")
               image = Magick::Image::read(file_path).first
               image_width = image.columns
+            elsif Object.const_defined?("MiniMagick")
+ 	      image = MiniMagick::Image.from_file(file_path)
+	      image_width = image[:width]
             else
               image_width = 100
             end
