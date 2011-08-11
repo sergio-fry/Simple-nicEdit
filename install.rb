@@ -2,8 +2,8 @@
 
 puts "Copying files..."
 
-public_dir = RAILS_ROOT + '/public'
-tasks_dir = RAILS_ROOT + '/lib/tasks/'
+public_dir = ::Rails.root.to_s + '/public'
+tasks_dir = ::Rails.root.to_s + '/lib/tasks/'
 
 tasks = Dir[File.join(File.dirname(__FILE__), '/tasks/*')]
 FileUtils.cp(tasks, tasks_dir)
