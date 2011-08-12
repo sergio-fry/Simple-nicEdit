@@ -26,7 +26,7 @@ And add :upload_url option to field:
 == Installation
 
 Installing Simple nicEdit plugin:
-  $ ruby script/plugin install git://github.com/sergio-fry/Simple-nicEdit.git
+  rails plugin install git://github.com/sergio-fry/Simple-nicEdit.git
 
 Add assets to your layout:
   <%= include_nicedit_assets %>
